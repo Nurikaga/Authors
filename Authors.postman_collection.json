@@ -8,6 +8,53 @@
 	"item": [
 		{
 			"name": "Get_Authors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var responseData = pm.response.json();\r",
+							"console.log(responseData[0]);\r",
+							"\r",
+							"pm.test(\"firstName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"First Name 1\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"lastName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Last Name 1\");\r",
+							"});\r",
+							"\r",
+							"var responseData = pm.response.json();\r",
+							"console.log(responseData[4]);\r",
+							"\r",
+							"pm.test(\"firstName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"First Name 5\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"lastName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Last Name 5\");\r",
+							"});\r",
+							"\r",
+							"var responseData = pm.response.json();\r",
+							"console.log(responseData[30]);\r",
+							"\r",
+							"pm.test(\"firstName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"First Name 31\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"lastName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Last Name 31\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -35,6 +82,37 @@
 		},
 		{
 			"name": "POST_Authors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"id\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(555);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"firstName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Nur\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"lastName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Zhek\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"idBook\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.idBook).to.eql(525);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -49,7 +127,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"id\":555,\"idBook\":525,\"firstName\":\"Nur\",\"lastName\":\"Zhek\"}"
+					"raw": "{\r\n    \"id\": 555,\r\n    \"idBook\": 525,\r\n    \"firstName\": \"Nurbolat\",\r\n    \"lastName\": \"Zhekebatyrov\"\r\n}"
 				},
 				"url": {
 					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
@@ -70,6 +148,41 @@
 		},
 		{
 			"name": "GET_Authors_authors_books_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var responseData = pm.response.json();\r",
+							"console.log(responseData[0]);\r",
+							"\r",
+							"pm.test(\"firstName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"First Name 1\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"lastName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Last Name 1\");\r",
+							"});\r",
+							"\r",
+							"var responseData = pm.response.json();\r",
+							"console.log(responseData[1]);\r",
+							"\r",
+							"pm.test(\"firstName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"First Name 2\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"lastName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Last Name 2\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -100,6 +213,27 @@
 		},
 		{
 			"name": "GET_Authors_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"firstName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"First Name 1\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"lastName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Last Name 1\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -128,6 +262,27 @@
 		},
 		{
 			"name": "PUT_Authors_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"firstName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"lastName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"string\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -142,7 +297,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"id\":0,\"idBook\":0,\"firstName\":\"string\",\"lastName\":\"string\"}"
+					"raw": "{\r\n    \"id\": 0,\r\n    \"idBook\": 0,\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\"\r\n}"
 				},
 				"url": {
 					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/1",
@@ -164,6 +319,19 @@
 		},
 		{
 			"name": "DELETE_Authors_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [
